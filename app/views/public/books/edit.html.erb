@@ -1,0 +1,33 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        
+  		<h1>投稿の修正</h1>
+  		  <%= form_with model:[:public, @book], local:true do |f| %>
+          <div class="form-group">
+            <%= f.label :title,"活動タイトル" %>
+            <%= f.text_field :title, class: 'form-control', size: "20x10" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :image, "活動の実績" %>
+            <%= f.attachment_field :image, class: 'form-control', size: "20x10" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :place, "活動場所" %>
+            <%= f.text_area :place, class: 'form-control', size: "20x10" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :explanation, "活動内容の説明" %>
+            <%= f.text_area :explanation, class: 'form-control', size: "20x10" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "編集内容を保存する", class: "btn btn-dark save" %>
+          </div>
+          <div class="text-center mt-3">
+            <%= link_to '戻る', public_book_path(@book), class: "book_#{@book.id} btn btn-dark back" %> |
+  	        <%= link_to '一覧', public_books_path, class: "book_#{@book.id} btn btn-dark back" %>
+  	       </div>
+        <% end %>
+        
+  </div>
+</div>

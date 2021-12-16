@@ -1,0 +1,27 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h5><%= link_to '全投稿一覧', admin_root_path %></h5>
+      <h2><%= link_to '＜ユーザー一覧＞', admin_customers_index_path %></h2>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>ユーザー名</th>
+            <th>プロフィール画像</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--↓↓ユーザー一覧-->
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.name %></td>
+              <td><%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+              <td><%= link_to 'ユーザー詳細', admin_customer_path(customer), class: "customer_#{customer.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
