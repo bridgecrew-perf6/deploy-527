@@ -69,10 +69,10 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 
 
+
+gem 'listen', '>= 3.0.5', '< 3.2'
 # ↓↓デプロイ用の記述
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-
-gem 'listen', '>= 3.0.5', '< 3.2'
